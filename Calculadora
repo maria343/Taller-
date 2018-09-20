@@ -22,7 +22,9 @@ bw.flush();
 int num1, num2, total;
 int Oper ;
  //You choose which operation you want to make, choosing a number from 0 to 6
+ 
 Oper = Integer.parseInt(br.readLine());
+
  //the number is asked for console   
 bw.write("\nEnter  Number 1");
 num1=Integer.parseInt(br.readLine());
