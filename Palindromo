@@ -1,40 +1,93 @@
-package palindromo;
 import java.io.*;
 
-public class Palindromo {
-public static void main(String[] args) {
- 
-		BufferedReader br = new BufferedReader(new InputStreamReader (System.in));
-		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter (System.out));
-		
-		try
-		{
-		//THE CHAIN â€‹â€‹IS RECEIVED BY CONSOLE
-		bw.write("enter the characters:   ");
-		bw.flush();
-		String c = br.readLine();
-		StringBuilder chain_to_buffer = new StringBuilder(c);
-		StringBuilder na= chain_to_buffer.reverse(); 
 
-		StringBuilder sbuf = new StringBuilder(na); 
-		String cadreversaenstring = sbuf.toString(); 
+public class calculadora {
+    public static void main(String args[]) throws IOException{
+        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+       BufferedWriter bw= new BufferedWriter(new OutputStreamWriter(System.out));
+       //A menu is displayed to choose the Operation options
+bw.write("\n1) addition ");
+bw.write("\n2) subtraction");
+bw.write("\n3) Division");
+bw.write("\n4) Multiplication");
+bw.write("\n5) Power");
+bw.write("\n6) Square Root");
+bw.write("\n0) Exit");
 
-		bw.write(c + "\n");
-		bw.flush();
-		
-		
-		if(c.equals(cadreversaenstring)) { 
-		bw.write("\n"+ cadreversaenstring+ " is palindrome");
-		bw.flush();
-		}
-		else {
-		bw.write("\n"+ cadreversaenstring + "  isn't palindrome ");
-		bw.flush();
-		}
-		}
-		catch (IOException ex) {}
-		}
+
+bw.write("\nIn case of empowerment the number two is assumed as exponent");
+bw.write("\nEnter the option");
+bw.flush();
+
+int num1, num2, total;
+int Oper ;
+ //You choose which operation you want to make, choosing a number from 0 to 6
+Oper = Integer.parseInt(br.readLine());
+ //the number is asked for console   
+bw.write("\nEnter  Number 1");
+num1=Integer.parseInt(br.readLine());
+//The first number is written to the console
+bw.write("\nEnter Number 2");
+num2=Integer.parseInt(br.readLine());
+//The second number is written to the console
+bw.flush();
+    //after having the operator and the two numbers to operate
+    //the case is chosen according to the operator and the operation is performed
+switch(Oper){
+case 1: total= num1 + num2;
+    bw.write("\nThe  result of the addition is: "+total);
+break;
+case 2: total=num1 - num2;
+    bw.write("\nThe  result of the subtraction is: "+total);
+break;
+case 3: total=num1 / num2;
+    bw.write("\nThe  result of the division is: "+total);
+break;
+case 4: total= mult (num1,num2);
+    bw.write("\nThe  result of the multiplication is: "+total);
+break;
+case 5: total= pot (num1,num2);
+    bw.write("\nThe  result of the power  is: "+total);
+break;
+case 6: total= root(num1);
+    bw.write("\nThe  result of the square root  is: "+total);
+break;
+case 0:
+    bw.write("\nExit");
+break;
+
+
+default: bw.write("\nIncorrect Option ");
+break;
+}
+bw.flush();
 }
 
+public static int pot (int a,int expo)
+{
+    
+ 
+    if(expo == 0)
+        return 1;
+    else
+       return mult (a,pot(a,expo-1));
 
 
+}
+public static int mult (int a,int b)
+{
+    
+    if( a == 0 || b ==0)
+    return 0;
+    else 
+        if(b==1)
+            return a;
+        else 
+        return a + mult(a,b-1);
+       
+}
+public static int root (double a)
+{
+    return (int) Math.sqrt(a);
+}
+}
