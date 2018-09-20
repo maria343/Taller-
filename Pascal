@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Pascal {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner t = new Scanner(System.in);
+        System.out.print("type the number of columns you want in the pascal triangle");
+        int n=t.nextInt();
+        int mat[][] = new int [n +1][n + 1];
+        for ( int i = 0; i <= n; i++){
+        for ( int j = 0; j <= i; j++){ 
+            if (j==0||i==j)
+                mat[i][j] = 1;
+            else
+                mat[i][j] = mat[i - 1][j -1]+ mat[i - 1][j];        
+        }   
+        }
+        for ( int i = 0; i <= n; i++){
+            for ( int j = 0; j <= i; j++){
+                System.out.print(mat[i][j] + " ");
+            }
+            System.out.println();
+    }
+    
+    }
+}
