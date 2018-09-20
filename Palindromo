@@ -1,41 +1,40 @@
 package palindromo;
+import java.io.*;
 
-
-import java.util.Scanner;
 public class Palindromo {
+public static void main(String[] args) {
+ 
+		BufferedReader br = new BufferedReader(new InputStreamReader (System.in));
+		BufferedWriter bw = new BufferedWriter (new OutputStreamWriter (System.out));
+		
+		try
+		{
+		//THE CHAIN â€‹â€‹IS RECEIVED BY CONSOLE
+		bw.write("enter the characters:   ");
+		bw.flush();
+		String c = br.readLine();
+		StringBuilder chain_to_buffer = new StringBuilder(c);
+		StringBuilder na= chain_to_buffer.reverse(); 
 
-    /**
-     * @param args the command line arguments
-     */
-    public static boolean palindromo(String palabra)
-    {
-        for (int i= 0; i < palabra.length(); i++)
-        {
-            if (palabra.charAt(i) != palabra.charAt(palabra.length() - i - 1))
-            {
-                return false;
-            }
-        } 
-        return true;
-    }
-    public static void main(String[] args) {
-      
-        String palabra;
-        Scanner teclado = new Scanner(System.in);
-        System.out.print("Write the word you want to know if it's palindrome or not");
-        palabra = teclado.next();
-        
-        if(palindromo(palabra) == true)
-        {
-            System.out.printf("la frase\"%s\" es un palindromo", palabra);
-        } 
-        else
-        {
-            System.out.printf("la frase\"%s\" no es un palindromo", palabra);
-            
-        }
-        
-        
-    }
-    
+		StringBuilder sbuf = new StringBuilder(na); 
+		String cadreversaenstring = sbuf.toString(); 
+
+		bw.write(c + "\n");
+		bw.flush();
+		
+		
+		if(c.equals(cadreversaenstring)) { 
+		bw.write("\n"+ cadreversaenstring+ " is palindrome");
+		bw.flush();
+		}
+		else {
+		bw.write("\n"+ cadreversaenstring + "  isn't palindrome ");
+		bw.flush();
+		}
+		}
+		catch (IOException ex) {}
+		}
 }
+
+
+
