@@ -1,0 +1,51 @@
+package fibonacci;
+import java.io.*;
+import java.util.Scanner;
+public class Fibonacci {
+    
+    public static int factorial(int x)
+    {
+        if (x>1)
+            return x*factorial(x-1);
+        else
+            return 1;
+    }
+    public int fibonacci(int x)     
+    {
+       if(x==0)
+           return 0;
+       else 
+           if(x==1)
+               return 1;
+       else
+               return fibonacci(x-1)+fibonacci(x-2);
+    }
+
+   
+  
+    public static void main(String[] args) 
+    {
+       BufferedReader br = new BufferedReader (new InputStreamReader(System.in));
+       BufferedWriter bw = new BufferedWriter (new OutputStreamWriter(System.out));
+       
+       int input;
+       int iterations = 5;
+       //5 numbers are written which will appear the factorial
+       try
+       {
+           for(int i=0; i<iterations; i++)
+           {
+               input =Integer.parseInt(br.readLine());
+               bw.write("\nthe result of factorial " + "de" + " " +input+ " "  +  "es" + " " + factorial (input));
+           }
+           bw.flush();
+               
+       }
+       catch(Exception ex)
+       {
+           ex.printStackTrace();
+           
+       
+        }
+            }
+        }
